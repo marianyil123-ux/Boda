@@ -180,10 +180,14 @@ footer {
     right: 20px;
     bottom: 50px;
     z-index: 1000;
-    font-size: 2em;
     cursor: pointer;
-    color: #556B2F;
     animation: bajar 1s infinite;
+}
+
+.flecha-scroll svg {
+    width: 50px;   /* más ancho */
+    height: 50px;  /* más alto */
+    stroke: #556B2F; /* color de la flecha */
 }
 
 @keyframes bajar {
@@ -191,7 +195,6 @@ footer {
     50% { transform: translateY(10px); }
     100% { transform: translateY(0); }
 }
-
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
     h1 {
@@ -279,7 +282,13 @@ Vuestra compañía será nuestro mayor regalo, pero si deseáis tener un detalle
 </footer>
 
 <!-- FLECHA DESLIZAR ABAJO -->
-<div class="flecha-scroll" id="flecha" style="display:none;" onclick="scrollAbajo()">&#8595;</div>
+<div class="flecha-scroll" id="flecha" style="display:none;" onclick="scrollAbajo()">
+    <!-- Flecha SVG más ancha y elegante -->
+    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#556B2F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <polyline points="6 13 12 19 18 13"></polyline>
+    </svg>
+</div>
 
 <script>
 // --- PANTALLA DE ENTRADA ---
