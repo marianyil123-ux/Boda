@@ -6,7 +6,7 @@
 <title>Nerea & Iñaki - 11 de JULIO de 2026</title>
 
 <!-- Cargar fuentes -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&family=Yolan&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&family=Jane+Austin&display=swap" rel="stylesheet">
 
 <style>
 /* --- ESTILO GENERAL --- */
@@ -26,54 +26,63 @@ p {
 
 /* --- PANTALLA DE ENTRADA --- */
 #pantalla-inicial {
-    position:fixed;
-    width:100%;
-    height:100vh;
-    background:#ffffff;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    z-index:9999;
-    text-align:center;
-    transition:opacity 1.2s ease;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+    text-align: center;
+    transition: opacity 1.2s ease;
     color: #556B2F;
 }
 
-/* Animación del título */
+/* Animación fade + zoom */
 @keyframes fadeZoom {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
 }
 
+/* --- TITULOS PRINCIPALES --- */
+#pantalla-inicial h1,
+header h1 {
+    font-family: 'Jane Austin', cursive; /* Solo títulos principales */
+    animation: fadeZoom 1.5s ease-out forwards; /* fade + zoom */
+}
+
+/* Tamaños específicos */
 #pantalla-inicial h1 {
-    font-family: 'Yolan', cursive; /* Solo título con Yolan */
     font-size: 3rem;
     margin-bottom: 15px;
-    animation: fadeZoom 1.5s ease-out forwards;
 }
 
+header h1 {
+    font-size: 3.2em;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+/* --- BOTÓN DE PANTALLA DE INICIO --- */
 #pantalla-inicial button {
-    padding:15px 35px;
-    border:none;
-    border-radius:6px;
-    background:#556B2F;
-    color:#ffffff;
-    font-size:0.95em;
-    cursor:pointer;
-    font-weight:500;
-    letter-spacing:1px;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 6px;
+    background: #556B2F;
+    color: #ffffff;
+    font-size: 0.95em;
+    cursor: pointer;
+    font-weight: 500;
+    letter-spacing: 1px;
     transition: all 0.3s ease;
 }
 
 #pantalla-inicial button:hover {
-    background:#445823;
+    background: #445823;
 }
 
 /* --- HEADER --- */
@@ -86,7 +95,7 @@ header {
     position: relative;
 }
 
-/* --- SELLO INICIALES ELEGANTE --- */
+/* --- SELLO INICIALES --- */
 .sello {
     position: absolute;
     top: 25px;
@@ -116,18 +125,7 @@ header {
     border-radius: 50%;
 }
 
-/* --- TITULO PRINCIPAL HEADER --- */
-header h1 {
-    font-family: 'Yolan', cursive; /* Solo título con Yolan */
-    font-size: 3.2em;
-    font-style: italic;
-    font-weight: 500;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-    animation: fadeZoom 1.5s ease-out forwards; /* misma animación */
-}
-
-/* --- CUENTA ATRAS --- */
+/* --- CUENTA ATRÁS --- */
 .cuenta-atras {
     font-size: 1.15em;
     font-weight: 300;
@@ -368,4 +366,4 @@ window.addEventListener("scroll", () => {
 </script>
 
 </body>
-</html>
+                     </html>
