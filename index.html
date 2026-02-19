@@ -3,316 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nerea & Iñaki - 11 de JULIO de 2026</title>
+<title>María & Javier | Nos Casamos</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500;0,700;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-/* --- ESTILO GENERAL --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    font-family: 'Georgia', serif;
-    background-color: #ffffff;
-    color: #000000;
-    text-align: center;
+  font-family: 'Poppins', sans-serif;
+  background: #ffffff;
+  color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
 }
 
-/* --- PANTALLA DE ENTRADA --- */
-#pantalla-inicial {
-    position:fixed;
-    width:100%;
-    height:100vh;
-    background:#ffffff;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    z-index:9999;
-    text-align:center;
-    transition:opacity 1.2s ease;
+.container {
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
 }
 
-#pantalla-inicial button {
-    padding:15px 35px;
-    border:none;
-    border-radius:6px;
-    background:#333333;
-    color:white;
-    font-size:1em;
-    cursor:pointer;
-    font-weight:500;
-    transition: all 0.3s ease;
-}
-#pantalla-inicial button:hover {
-    background:#555555;
-}
-
-/* --- HEADER --- */
-header {
-    padding: 100px 20px 60px;
-    background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)),
-                url("ronda.jpg");
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
-
-/* --- SELLO INICIALES --- */
-.sello {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    border: 2px solid #000;
-    border-radius: 50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family: 'Playfair Display', serif;
-    font-weight:700;
-    font-size: 1.2em;
-    color:#000;
-}
-
-/* --- TITULOS --- */
 h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3em;
-    font-style: italic;
-    margin-bottom: 10px;
-}
-
-.fecha {
-    font-size: 1.3em;
-    letter-spacing: 2px;
-    margin-bottom: 30px;
-}
-
-.cuenta-atras {
-    font-size: 1.3em;
-    margin-top: 20px;
-    font-weight: 300;
-}
-
-.fotos img {
-    width: 260px;
-    margin: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-/* --- SECCIONES --- */
-section {
-    padding: 70px 20px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 1s ease;
-    background-color: #ffffff;
-}
-
-section.visible {
-    opacity: 1;
-    transform: translateY(0);
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: 2px;
 }
 
 h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2em;
-    font-style: italic;
-    margin-bottom: 25px;
-    font-weight: 500;
+  font-weight: 300;
+  margin: 10px 0 30px 0;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #777;
 }
 
-.programa img, .ubicacion img {
-    width: 85%;
-    max-width: 600px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+.details {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 30px;
 }
 
-/* --- FOOTER --- */
-footer {
-    padding: 40px 20px;
-    font-size: 0.9em;
-    background-color: #ffffff;
-    color: #000000;
+button {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
 }
 
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.2em;
-    }
-    .fotos img, .programa img, .ubicacion img {
-        width: 90%;
-    }
-    .sello {
-        width: 50px;
-        height: 50px;
-        font-size: 1em;
-    }
+button:hover {
+  background: #444;
 }
 
-/* --- BOTÓN CONFIRMAR --- */
-.boton {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 14px 35px;
-    border: 1.5px solid #000;
-    border-radius: 30px;
-    text-decoration: none;
-    color: #000;
-    font-weight: 500;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  h1 { font-size: 32px; }
+  .details { font-size: 16px; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- PANTALLA DE ENTRADA -->
-<div id="pantalla-inicial">
-    <h1>Nerea & Iñaki</h1>
-    <p style="letter-spacing:3px; margin-bottom:10px; font-size:1.2em;">¡Nuestro día especial está por llegar!</p>
-    <p style="letter-spacing:3px; margin-bottom:30px;">11 de Julio de 2026</p>
-    <button onclick="abrirInvitacion()">Abrir invitación</button>
+<div class="container">
+  <h1>Nerea & Iñaki</h1>
+  <h2>Nos Casamos</h2>
+
+  <div class="details">
+    11 · Julio · 2026<br>
+    18:00 h<br>
+    Finca Los Olivos
+  </div>
+
+  <button onclick="alert('¡Gracias por confirmar! ❤️')">
+    Confirmar asistencia
+  </button>
 </div>
-
-<!-- CARRUSEL DE FOTOS -->
-<div id="carrusel">
-    <div class="slides">
-        <img src="foto1.jpg" alt="Foto 1">   
-    </div>
-</div>
-
-<header>
-    <div class="sello">N & I</div>
-    <h1>Nerea & Iñaki</h1>
-    <div class="fecha">11 de JULIO de 2026</div>
-    <div class="cuenta-atras" id="contador"></div>
-    <div class="fotos">
-        <img src="foto1.jpg" alt="Foto pareja 1">
-    </div>
-</header>
-
-<!-- PROGRAMA -->
-<section>
-    <h2>PROGRAMA</h2>
-    <div class="programa">
-        <img src="programa.PNG" alt="Programa boda">
-    </div>
-</section>
-
-<!-- CONFIRMACIÓN -->
-<section>
-    <h2>CONFIRMACIÓN DE ASISTENCIA</h2>
-    <p>Nos encantaría contar contigo en nuestro día. Por favor, confirma tu asistencia antes del <strong>21 de Marzo de 2026</strong>.</p>
-    <a class="boton" href="https://docs.google.com/forms/d/e/1FAIpQLSfqXMHrm615boPe7YyzUk5AhUR8w9_5d807FafDdk79SJjrnA/viewform?usp=header" target="_blank">
-        Confirmar asistencia
-    </a>
-    <p style="margin-top:20px; font-size:0.9em; font-style:italic;">
-    </p>
-</section>
-
-<!-- UBICACIÓN -->
-<section>
-    <h2>UBICACIÓN</h2>
-    <p style="max-width:700px; margin:20px auto;">
-        Nos casamos en la preciosa ciudad de Ronda.
-    </p>
-    <div class="ubicacion">
-        <img src="ronda.jpg" alt="Iglesia y finca">
-    </div>
-    <div style="max-width:900px; margin:auto; margin-top:30px;">
-        <h3 style="font-family: 'Playfair Display', serif; font-style:italic;">⛪ Ceremonia</h3>
-        <p>Iglesia de Padre Jesús<br>C/ Real, 13<br>Ronda, Málaga</p>
-        <iframe src="https://www.google.com/maps?q=Iglesia+de+Padre+Jesus+Ronda&output=embed" width="100%" height="300" style="border:0; border-radius:10px; margin-bottom:30px;" loading="lazy"></iframe>
-
-        <h3 style="font-family: 'Playfair Display', serif; font-style:italic;">🌿 Celebración</h3>
-        <p>Heredad Los Alba<br>Carretera Algeciras, Ronda</p>
-        <iframe src="https://www.google.com/maps?q=Heredad+Los+Alba+Ronda&output=embed" width="100%" height="300" style="border:0; border-radius:10px;" loading="lazy"></iframe>
-    </div>
-</section>
-
-<!-- REGALO -->
-<section>
-    <h2>REGALO</h2>
-    <p style="max-width:700px; margin:20px auto; line-height:1.8;">
-Vuestra compañía será nuestro mayor regalo, pero si deseáis tener un detalle con nosotros, podéis ayudarnos a comenzar esta nueva etapa.
-    </p>
-    <div style="margin-top:30px; padding:25px; background:white; max-width:500px; margin-left:auto; margin-right:auto; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.05);">
-        <p><strong>Cuenta bancaria</strong></p>
-        <p>ES00 0000 0000 0000 0000 0000</p>
-        <p style="font-size:0.8em; color:#555;">
-            ¡Gracias por ayudarnos a hacer realidad nuestros sueños!
-        </p>
-    </div>
-</section>
-
-<footer>
-    Con mucho cariño, os esperamos
-</footer>
-
-<script>
-// --- PANTALLA DE ENTRADA Y CARRUSEL ---
-function abrirInvitacion(){
-    document.getElementById("pantalla-inicial").style.opacity = "0";
-    setTimeout(function(){
-        document.getElementById("pantalla-inicial").style.display = "none";
-        
-        const carrusel = document.getElementById("carrusel");
-        carrusel.style.display = "block";
-
-        let index = 0;
-        const fotos = carrusel.querySelectorAll("img");
-        fotos[index].style.opacity = 1;
-
-        const intervalo = setInterval(() => {
-            fotos[index].style.opacity = 0;
-            index++;
-            if(index >= fotos.length){
-                clearInterval(intervalo);
-                carrusel.style.display = "none";
-            } else {
-                fotos[index].style.opacity = 1;
-            }
-        }, 2000);
-    },1200);
-}
-
-// --- CUENTA ATRÁS ---
-const fechaBoda = new Date("July 11, 2026 00:00:00").getTime();
-const contador = setInterval(function() {
-    const ahora = new Date().getTime();
-    const diferencia = fechaBoda - ahora;
-
-    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
-
-    document.getElementById("contador").innerHTML =
-        dias + " días " + horas + "h " + minutos + "m " + segundos + "s ";
-
-    if (diferencia < 0) {
-        clearInterval(contador);
-        document.getElementById("contador").innerHTML = "¡Hoy es el gran día!";
-    }
-}, 1000);
-
-// --- ANIMACIONES SCROLL ---
-const secciones = document.querySelectorAll("section");
-window.addEventListener("scroll", () => {
-    secciones.forEach(sec => {
-        const posicion = sec.getBoundingClientRect().top;
-        if(posicion < window.innerHeight - 100){
-            sec.classList.add("visible");
-        }
-    });
-});
-</script>
 
 </body>
 </html>
