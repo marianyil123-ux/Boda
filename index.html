@@ -184,7 +184,6 @@ footer {
     cursor: pointer;
     color: #556B2F;
     animation: bajar 1s infinite;
-    transition: opacity 0.5s ease;
 }
 
 @keyframes bajar {
@@ -303,20 +302,6 @@ function scrollAbajo(){
     primeraSeccion.scrollIntoView({behavior: "smooth"});
 }
 
-// --- OCULTAR FLECHA DEFINITIVAMENTE CON DESVANECIMIENTO ---
-const flecha = document.getElementById("flecha");
-const primeraSeccion = document.querySelector("section");
-
-window.addEventListener("scroll", function ocultarFlecha(){
-    const posicionSeccion = primeraSeccion.getBoundingClientRect().top;
-    if(posicionSeccion <= window.innerHeight / 2){
-        // Desvanecer la flecha antes de ocultarla
-        flecha.style.opacity = "0";
-        setTimeout(() => { flecha.style.display = "none"; }, 500);
-        window.removeEventListener("scroll", ocultarFlecha);
-    }
-});
-
 // --- CUENTA ATRÁS ---
 const fechaBoda = new Date("July 11, 2026 00:00:00").getTime();
 const contador = setInterval(function() {
@@ -341,4 +326,13 @@ const contador = setInterval(function() {
 const secciones = document.querySelectorAll("section");
 window.addEventListener("scroll", () => {
     secciones.forEach(sec => {
-        const posicion = sec
+        const posicion = sec.getBoundingClientRect().top;
+        if(posicion < window.innerHeight - 100){
+            sec.classList.add("visible");
+        }
+    });
+});
+</script>
+
+</body>
+</html>
