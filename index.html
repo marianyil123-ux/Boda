@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nerea & Iñaki - 11 de JULIO de 2026</title>
 
+<!-- Cargar fuentes -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&family=Jane+Austin&display=swap" rel="stylesheet">
+
 <style>
 /* --- ESTILO GENERAL --- */
 body {
@@ -23,35 +26,66 @@ p {
 
 /* --- PANTALLA DE ENTRADA --- */
 #pantalla-inicial {
-    position:fixed;
-    width:100%;
-    height:100vh;
-    background:#ffffff;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    z-index:9999;
-    text-align:center;
-    transition:opacity 1.2s ease;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+    text-align: center;
+    transition: opacity 1.2s ease;
     color: #556B2F;
 }
 
+/* --- ANIMACIÓN FADE + ZOOM --- */
+@keyframes fadeZoom {
+    0% { opacity: 0; transform: scale(0.6); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* --- TITULOS PRINCIPALES --- */
+#pantalla-inicial h1,
+header h1 {
+    font-family: 'Jane Austin', cursive; /* Solo títulos principales */
+    font-weight: normal;
+    white-space: nowrap;
+    display: inline-block;
+    opacity: 0;
+    transform: scale(0.6);
+    animation: fadeZoom 1.8s ease forwards;
+}
+
+/* Tamaños específicos */
+#pantalla-inicial h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+header h1 {
+    font-size: 3.2em;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+/* --- BOTÓN DE PANTALLA DE INICIO --- */
 #pantalla-inicial button {
-    padding:15px 35px;
-    border:none;
-    border-radius:6px;
-    background:#556B2F;
-    color:#ffffff;
-    font-size:0.95em;
-    cursor:pointer;
-    font-weight:500;
-    letter-spacing:1px;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 6px;
+    background: #556B2F;
+    color: #ffffff;
+    font-size: 0.95em;
+    cursor: pointer;
+    font-weight: 500;
+    letter-spacing: 1px;
     transition: all 0.3s ease;
 }
 
 #pantalla-inicial button:hover {
-    background:#445823;
+    background: #445823;
 }
 
 /* --- HEADER --- */
@@ -64,7 +98,7 @@ header {
     position: relative;
 }
 
-/* --- SELLO INICIALES ELEGANTE --- */
+/* --- SELLO INICIALES --- */
 .sello {
     position: absolute;
     top: 25px;
@@ -94,16 +128,7 @@ header {
     border-radius: 50%;
 }
 
-/* --- TITULO PRINCIPAL --- */
-h1 {
-    font-size: 3.2em;
-    font-style: italic;
-    font-weight: 500;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-}
-
-/* --- CUENTA ATRAS --- */
+/* --- CUENTA ATRÁS --- */
 .cuenta-atras {
     font-size: 1.15em;
     font-weight: 300;
@@ -180,11 +205,14 @@ footer {
     right: 20px;
     bottom: 50px;
     z-index: 1000;
-    font-size: 2em;
     cursor: pointer;
-    color: #556B2F;
     animation: bajar 1s infinite;
-    transition: opacity 0.5s ease;
+}
+
+.flecha-scroll svg {
+    width: 50px;
+    height: 50px;
+    stroke: #556B2F;
 }
 
 @keyframes bajar {
@@ -195,7 +223,7 @@ footer {
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-    h1 {
+    header h1, #pantalla-inicial h1 {
         font-size: 2.4em;
     }
     .fotos img, .programa img, .ubicacion img {
@@ -229,6 +257,7 @@ footer {
     </div>
 </header>
 
+<!-- SECCIONES -->
 <section>
     <h2>PROGRAMA</h2>
     <div class="programa">
@@ -244,6 +273,8 @@ footer {
     </a>
 </section>
 
+<section>
+    <!-- UBICACIÓN -->
 <section>
     <h2>UBICACIÓN</h2>
     <p style="max-width:700px; margin:20px auto;">
@@ -263,24 +294,24 @@ footer {
     </div>
 </section>
 
-<h2>REGALO</h2>
-<p style="max-width:700px; margin:20px auto;">
+<!-- REGALO -->
+<section>
+    <h2>REGALO</h2>
+    <p style="max-width:700px; margin:20px auto; line-height:1.8;">
 Vuestra compañía será nuestro mayor regalo, pero si deseáis tener un detalle con nosotros, podéis ayudarnos a comenzar esta nueva etapa.
-</p>
-<div style="margin-top:30px; padding:25px; background:white; max-width:500px; margin-left:auto; margin-right:auto; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.05);">
-    <p><strong>Cuenta bancaria</strong></p>
-    <p>ES00 0000 0000 0000 0000 0000</p>
-    <p style="font-size:0.8em; color:#555;">
-        ¡Gracias por ayudarnos a hacer realidad nuestros sueños!
     </p>
-</div>
+    <div style="margin-top:30px; padding:25px; background:white; max-width:500px; margin-left:auto; margin-right:auto; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.05);">
+        <p><strong>Cuenta bancaria</strong></p>
+        <p>ES00 0000 0000 0000 0000 0000</p>
+        <p style="font-size:0.8em; color:#555;">
+            ¡Gracias por ayudarnos a hacer realidad nuestros sueños!
+        </p>
+    </div>
+</section>
 
 <footer>
     Con mucho cariño, os esperamos
 </footer>
-
-<!-- FLECHA DESLIZAR ABAJO -->
-<div class="flecha-scroll" id="flecha" style="display:none;" onclick="scrollAbajo()">&#8595;</div>
 
 <script>
 // --- PANTALLA DE ENTRADA ---
@@ -302,20 +333,6 @@ function scrollAbajo(){
     const primeraSeccion = document.querySelector("section");
     primeraSeccion.scrollIntoView({behavior: "smooth"});
 }
-
-// --- OCULTAR FLECHA DEFINITIVAMENTE CON DESVANECIMIENTO ---
-const flecha = document.getElementById("flecha");
-const primeraSeccion = document.querySelector("section");
-
-window.addEventListener("scroll", function ocultarFlecha(){
-    const posicionSeccion = primeraSeccion.getBoundingClientRect().top;
-    if(posicionSeccion <= window.innerHeight / 2){
-        // Desvanecer la flecha antes de ocultarla
-        flecha.style.opacity = "0";
-        setTimeout(() => { flecha.style.display = "none"; }, 500);
-        window.removeEventListener("scroll", ocultarFlecha);
-    }
-});
 
 // --- CUENTA ATRÁS ---
 const fechaBoda = new Date("July 11, 2026 00:00:00").getTime();
@@ -350,4 +367,4 @@ window.addEventListener("scroll", () => {
 </script>
 
 </body>
-           </html>
+</html>
