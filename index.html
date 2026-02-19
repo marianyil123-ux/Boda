@@ -63,23 +63,37 @@ header {
     position: relative;
 }
 
-/* --- SELLO INICIALES --- */
+/* --- SELLO INICIALES ELEGANTE --- */
 .sello {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    border: 2px solid #000;
+    top: 25px;
+    right: 25px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:700;
-    font-size: 1.1em;
-    letter-spacing:1px;
+    background: rgba(255,255,255,0.9);
+    border: 1.5px solid #556B2F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-size: 1.6em;
+    color: #556B2F;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    position: absolute;
 }
 
+/* segundo círculo interior */
+.sello::before {
+    content: "";
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    border: 1px solid #556B2F;
+    border-radius: 50%;
+}
 /* --- TITULO PRINCIPAL --- */
 h1 {
     font-size: 3.2em;
