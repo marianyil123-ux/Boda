@@ -61,20 +61,27 @@ header h1 {
 #pantalla-inicial h1 { font-size: 3rem; margin-bottom: 15px; }
 header h1 { font-size: 3.2em; font-style: italic; letter-spacing: 1px; }
 
-/* --- BOTÓN DE PANTALLA DE INICIO --- */
-#pantalla-inicial button {
-    padding: 15px 35px;
-    border: none;
-    border-radius: 6px;
-    background: #000000;
-    color: #ffffff;
-    font-size: 0.95em;
-    cursor: pointer;
+/* --- BOTÓN ESTILO COMÚN --- */
+.boton {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 35px;
+    min-width: 220px;             /* ancho uniforme */
+    border: 1.5px solid #556B2F;  /* borde verde oscuro */
+    border-radius: 30px;
+    text-decoration: none;
+    color: #556B2F;               /* texto verde oscuro */
     font-weight: 500;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    font-size: 0.95em;
+    text-align: center;
+    cursor: pointer;
     transition: all 0.3s ease;
 }
-#pantalla-inicial button:hover { background: #445823; }
+.boton:hover {
+    background: #556B2F;           /* fondo verde oscuro */
+    color: #fff;                   /* texto blanco */
+}
 
 /* --- HEADER --- */
 header {
@@ -148,22 +155,6 @@ h2 { font-size: 2.1em; font-style: italic; font-weight: 500; margin-bottom: 35px
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-/* --- BOTÓN CONFIRMAR --- */
-.boton {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 14px 35px;
-    border: 1.5px solid #000;
-    border-radius: 30px;
-    text-decoration: none;
-    color: #000;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    font-size: 0.95em;
-    transition: all 0.3s ease;
-}
-.boton:hover { background: #000; color: #fff; }
-
 /* --- FOOTER --- */
 footer { padding: 50px 20px; font-size: 0.9em; }
 
@@ -177,7 +168,7 @@ footer { padding: 50px 20px; font-size: 0.9em; }
     height: 60px;
     border-radius: 50%;
     background-color: rgba(85,107,47,0.1);
-    display: none; /* Inicialmente oculta */
+    display: none;
     cursor: pointer;
     z-index: 1000;
     display: flex;
@@ -213,7 +204,7 @@ footer { padding: 50px 20px; font-size: 0.9em; }
     <h1>Nerea & Iñaki</h1>
     <p style="letter-spacing:3px; margin-bottom:10px;">¡Nuestro día especial está por llegar!</p>
     <p style="letter-spacing:3px; margin-bottom:30px;">11 de Julio de 2026</p>
-    <button onclick="abrirInvitacion()">Abrir invitación</button>
+    <a href="#" class="boton" onclick="abrirInvitacion()">Entrar a la invitación</a>
 </div>
 
 <header>
@@ -300,7 +291,7 @@ function abrirInvitacion(){
 function mostrarFlecha(){
     const flecha = document.getElementById("flecha");
     flecha.style.display = "flex";
-    setTimeout(() => { flecha.style.opacity = "1"; }, 50); // fade-in suave
+    setTimeout(() => { flecha.style.opacity = "1"; }, 50);
 }
 
 // --- SCROLL ABAJO ---
@@ -354,4 +345,4 @@ window.addEventListener("scroll", () => {
 </script>
 
 </body>
-</html>
+        </html>
