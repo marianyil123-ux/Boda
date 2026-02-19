@@ -40,10 +40,10 @@ p {
     color: #556B2F;
 }
 
-/* --- EFECTO ESCRITURA SUAVE (SIN CURSOR) --- */
-@keyframes fadeTyping {
-    0% { width: 0; opacity: 0; }
-    100% { width: 100%; opacity: 1; }
+/* --- EFECTO FADE + ZOOM --- */
+@keyframes fadeZoom {
+    0% { opacity: 0; transform: scale(0.6); }
+    100% { opacity: 1; transform: scale(1); }
 }
 
 /* --- TITULOS PRINCIPALES --- */
@@ -53,8 +53,10 @@ header h1 {
     font-weight: normal;
     white-space: nowrap;
     overflow: hidden;
-    width: 0;
-    animation: fadeTyping 2s steps(30, end) forwards;
+    display: inline-block;
+    opacity: 0;
+    transform: scale(0.6);
+    animation: fadeZoom 1.8s ease forwards;
 }
 
 /* Tamaños específicos */
