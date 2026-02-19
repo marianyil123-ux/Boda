@@ -22,7 +22,13 @@ p {
     font-size: 1em;
     line-height: 1.8;
     font-weight: 400;
-    color: #808000; /* aseguramos que los párrafos sean oliva */
+    color: #808000;
+}
+
+/* --- CLASE DATOS IMPORTANTES --- */
+.resaltar {
+    color: #556B2F; /* verde oscuro */
+    font-weight: 500;
 }
 
 /* --- PANTALLA DE ENTRADA --- */
@@ -63,19 +69,19 @@ header h1 {
 header h1 { font-size: 3.2em; font-style: italic; letter-spacing: 1px; }
 
 /* --- BOTÓN PANTALLA DE INICIO --- */
-#pantalla-inicial button {
-    padding: 15px 35px;
+#pantalla-inicial button, .boton {
+    padding: 14px 35px;
     border: 1.5px solid #556B2F;
-    border-radius: 6px;
+    border-radius: 30px;
     background-color: #556B2F;
     color: #ffffff;
+    font-weight: 500;
+    letter-spacing: 1.5px;
     font-size: 0.95em;
     cursor: pointer;
-    font-weight: 500;
-    letter-spacing: 1px;
     transition: all 0.3s ease;
 }
-#pantalla-inicial button:hover {
+#pantalla-inicial button:hover, .boton:hover {
     background-color: #445823;
     border-color: #445823;
     color: #ffffff;
@@ -127,7 +133,7 @@ header {
     font-weight: 300;
     margin-top: 15px;
     letter-spacing: 1px;
-    color: #556B2F; /* cuenta atrás verde */
+    color: #556B2F;
 }
 
 /* --- FOTOS --- */
@@ -140,25 +146,17 @@ section {
     transform: translateY(20px);
     transition: all 1s ease;
     background-color: #ffffff;
-    color: #808000; /* texto general en oliva */
 }
 
 section.visible { opacity: 1; transform: translateY(0); }
 
 /* --- TITULOS DE SECCIONES --- */
-section h2 {
+section h2, section h3 {
     font-size: 2.1em;
     font-style: italic;
     font-weight: 500;
     margin-bottom: 35px;
-    color: #556B2F; /* títulos en verde */
-}
-
-/* --- SUBTÍTULOS CEREMONIA Y CELEBRACIÓN --- */
-section h3 {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    color: #556B2F; /* subtítulos en verde */
+    color: #556B2F;
 }
 
 /* --- IMAGENES --- */
@@ -169,33 +167,8 @@ section h3 {
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-/* --- BOTÓN CONFIRMAR --- */
-.boton {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 14px 35px;
-    border: 1.5px solid #556B2F;
-    border-radius: 30px;
-    text-decoration: none;
-    color: #ffffff;
-    background-color: #556B2F;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    font-size: 0.95em;
-    transition: all 0.3s ease;
-}
-.boton:hover {
-    background-color: #445823;
-    border-color: #445823;
-    color: #ffffff;
-}
-
 /* --- FOOTER --- */
-footer { 
-    padding: 50px 20px; 
-    font-size: 0.9em; 
-    color: #808000; /* texto footer en oliva */
-}
+footer { padding: 50px 20px; font-size: 0.9em; color: #808000; }
 
 /* --- FLECHA DESPLAZAR ABAJO CENTRAL --- */
 .flecha-scroll {
@@ -217,7 +190,6 @@ footer {
     animation: bounce 1.5s infinite;
     transition: opacity 0.8s ease;
 }
-
 .flecha-scroll svg { width: 30px; height: 30px; stroke: #556B2F; }
 
 @keyframes bounce {
@@ -235,14 +207,13 @@ footer {
 }
 </style>
 </head>
-
 <body>
 
 <!-- PANTALLA DE ENTRADA -->
 <div id="pantalla-inicial">
     <h1>Nerea & Iñaki</h1>
     <p style="letter-spacing:3px; margin-bottom:10px;">¡Nuestro día especial está por llegar!</p>
-    <p style="letter-spacing:3px; margin-bottom:30px;">11 de Julio de 2026</p>
+    <p style="letter-spacing:3px; margin-bottom:30px;">11 de Julio de <span class="resaltar">2026</span></p>
     <button onclick="abrirInvitacion()">Abrir invitación</button>
 </div>
 
@@ -265,7 +236,7 @@ footer {
 
 <section>
     <h2>ASISTENCIA</h2>
-    <p>Nos encantaría contar contigo en nuestro día. Por favor, confirma tu asistencia antes del <strong>21 de Marzo de 2026</strong>.</p>
+    <p>Nos encantaría contar contigo en nuestro día. Por favor, confirma tu asistencia antes del <span class="resaltar">21 de Marzo de 2026</span>.</p>
     <a class="boton" href="https://docs.google.com/forms/d/e/1FAIpQLSfqXMHrm615boPe7YyzUk5AhUR8w9_5d807FafDdk79SJjrnA/viewform?usp=header" target="_blank">
         Confirmar asistencia
     </a>
@@ -273,19 +244,17 @@ footer {
 
 <section>
     <h2>UBICACIÓN</h2>
-    <p style="max-width:700px; margin:20px auto;">
-        Nos casamos en la preciosa ciudad de Ronda.
-    </p>
+    <p style="max-width:700px; margin:20px auto;">Nos casamos en la preciosa ciudad de <span class="resaltar">Ronda</span>.</p>
     <div class="ubicacion">
         <img src="ronda.jpg" alt="Iglesia y finca">
     </div>
     <div style="max-width:900px; margin:auto; margin-top:30px;">
         <h3>Ceremonia</h3>
-        <p>Iglesia de Padre Jesús<br>C/ Real, 13<br>Ronda, Málaga</p>
+        <p>Iglesia de Padre Jesús<br>C/ Real, 13<br><span class="resaltar">Ronda, Málaga</span></p>
         <iframe src="https://www.google.com/maps?q=Iglesia+de+Padre+Jesus+Ronda&output=embed" width="100%" height="300" style="border:0; border-radius:10px; margin-bottom:30px;" loading="lazy"></iframe>
 
         <h3>Celebración</h3>
-        <p>Heredad Los Alba<br>Carretera Algeciras, Ronda</p>
+        <p>Heredad Los Alba<br>Carretera Algeciras, <span class="resaltar">Ronda</span></p>
         <iframe src="https://www.google.com/maps?q=Heredad+Los+Alba+Ronda&output=embed" width="100%" height="300" style="border:0; border-radius:10px;" loading="lazy"></iframe>
     </div>
 </section>
@@ -296,9 +265,9 @@ footer {
         Vuestra compañía será nuestro mayor regalo, pero si deseáis tener un detalle con nosotros, podéis ayudarnos a comenzar esta nueva etapa.
     </p>
     <div style="margin-top:30px; padding:25px; background:white; max-width:500px; margin-left:auto; margin-right:auto; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.05);">
-        <p><strong>Cuenta bancaria</strong></p>
-        <p>ES00 0000 0000 0000 0000 0000</p>
-        <p style="font-size:0.8em; color:#555;">
+        <p><strong class="resaltar">Cuenta bancaria</strong></p>
+        <p class="resaltar">ES00 0000 0000 0000 0000 0000</p>
+        <p style="font-size:0.8em; color:#808000;">
             ¡Gracias por ayudarnos a hacer realidad nuestros sueños!
         </p>
     </div>
