@@ -5,343 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nerea & Iñaki - 11 de JULIO de 2026</title>
 
+<!-- Cargar fuentes -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&family=Yolan&display=swap" rel="stylesheet">
+
 <style>
-/* --- ESTILO GENERAL --- */
-body {
+  body {
+    font-family: 'Playfair Display', serif; /* fuente general */
+    background-color: #fff;
     margin: 0;
-    font-family: Georgia, serif;
-    background-color: #ffffff;
-    color: #000000;
-    text-align: center;
-}
+    padding: 0;
+  }
 
-p {
-    font-size: 1em;
-    line-height: 1.8;
-    font-weight: 400;
-}
-
-/* --- PANTALLA DE ENTRADA --- */
-#pantalla-inicial {
-    position:fixed;
-    width:100%;
-    height:100vh;
-    background:#ffffff;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    z-index:9999;
-    text-align:center;
-    transition:opacity 1.2s ease;
-    color: #556B2F;
-}
-
-#pantalla-inicial button {
-    padding:15px 35px;
-    border:none;
-    border-radius:6px;
-    background:#556B2F;
-    color:#ffffff;
-    font-size:0.95em;
-    cursor:pointer;
-    font-weight:500;
-    letter-spacing:1px;
-    transition: all 0.3s ease;
-}
-
-#pantalla-inicial button:hover {
-    background:#445823;
-}
-
-/* --- HEADER --- */
-header {
-    padding: 110px 20px 70px;
-    background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)),
-                url("ronda.jpg");
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
-
-/* --- SELLO INICIALES ELEGANTE --- */
-.sello {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.9);
-    border: 1.5px solid #556B2F;
+  .pantalla-inicio {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    font-family: "Playfair Display", serif;
-    font-style: italic;
-    font-size: 1.6em;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
     color: #556B2F;
-    letter-spacing: 2px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
+  }
 
-.sello::before {
-    content: "";
-    position: absolute;
-    width: 75px;
-    height: 75px;
-    border: 1px solid #556B2F;
-    border-radius: 50%;
-}
+  .pantalla-inicio h1 {
+    font-family: 'Yolan', cursive; /* Solo el título con Yolan */
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
 
-/* --- TITULO PRINCIPAL --- */
-h1 {
-    font-size: 3.2em;
-    font-style: italic;
-    font-weight: 500;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-}
+  .pantalla-inicio p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
 
-/* --- CUENTA ATRAS --- */
-.cuenta-atras {
-    font-size: 1.15em;
-    font-weight: 300;
-    margin-top: 15px;
-    letter-spacing: 1px;
-}
-
-/* --- FOTOS --- */
-.fotos img {
-    width: 260px;
-    margin: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-/* --- SECCIONES --- */
-section {
-    padding: 80px 20px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 1s ease;
-    background-color: #ffffff;
-}
-
-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-h2 {
-    font-size: 2.1em;
-    font-style: italic;
-    font-weight: 500;
-    margin-bottom: 35px;
-}
-
-/* --- IMAGENES --- */
-.programa img, .ubicacion img {
-    width: 85%;
-    max-width: 600px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-/* --- BOTÓN CONFIRMAR --- */
-.boton {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 14px 35px;
-    border: 1.5px solid #000;
-    border-radius: 30px;
-    text-decoration: none;
-    color: #000;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    font-size: 0.95em;
-    transition: all 0.3s ease;
-}
-
-.boton:hover {
-    background: #000;
+  .boton-entrar {
+    background-color: #556B2F;
     color: #fff;
-}
-
-/* --- FOOTER --- */
-footer {
-    padding: 50px 20px;
-    font-size: 0.9em;
-}
-
-/* --- FLECHA DESPLAZAR ABAJO --- */
-.flecha-scroll {
-    position: fixed;
-    right: 20px;
-    bottom: 50px;
-    z-index: 1000;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
-    animation: bajar 1s infinite;
-}
-
-.flecha-scroll svg {
-    width: 50px;   /* más ancho */
-    height: 50px;  /* más alto */
-    stroke: #556B2F; /* color de la flecha */
-}
-
-@keyframes bajar {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(10px); }
-    100% { transform: translateY(0); }
-}
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.4em;
-    }
-    .fotos img, .programa img, .ubicacion img {
-        width: 90%;
-    }
-    .sello {
-        width: 50px;
-        height: 50px;
-        font-size: 1em;
-    }
-}
+    font-family: 'Playfair Display', serif; /* mantiene la fuente general */
+  }
 </style>
 </head>
-
 <body>
-
-<!-- PANTALLA DE ENTRADA -->
-<div id="pantalla-inicial">
+  <div class="pantalla-inicio">
     <h1>Nerea & Iñaki</h1>
-    <p style="letter-spacing:3px; margin-bottom:10px;">¡Nuestro día especial está por llegar!</p>
-    <p style="letter-spacing:3px; margin-bottom:30px;">11 de Julio de 2026</p>
-    <button onclick="abrirInvitacion()">Abrir invitación</button>
-</div>
-
-<header>
-    <div class="sello">N & I</div>
-    <h1>Nerea & Iñaki</h1>
-    <div class="cuenta-atras" id="contador"></div>
-    <div class="fotos">
-        <img src="foto1.jpg" alt="Foto pareja 1">
-    </div>
-</header>
-
-<section>
-    <h2>PROGRAMA</h2>
-    <div class="programa">
-        <img src="programa.PNG" alt="Programa boda">
-    </div>
-</section>
-
-<section>
-    <h2>ASISTENCIA</h2>
-    <p>Nos encantaría contar contigo en nuestro día. Por favor, confirma tu asistencia antes del <strong>21 de Marzo de 2026</strong>.</p>
-    <a class="boton" href="https://docs.google.com/forms/d/e/1FAIpQLSfqXMHrm615boPe7YyzUk5AhUR8w9_5d807FafDdk79SJjrnA/viewform?usp=header" target="_blank">
-        Confirmar asistencia
-    </a>
-</section>
-
-<section>
-    <h2>UBICACIÓN</h2>
-    <p style="max-width:700px; margin:20px auto;">
-        Nos casamos en la preciosa ciudad de Ronda.
-    </p>
-    <div class="ubicacion">
-        <img src="ronda.jpg" alt="Iglesia y finca">
-    </div>
-    <div style="max-width:900px; margin:auto; margin-top:30px;">
-        <h3 style="font-family: 'Playfair Display', serif; font-style:italic;">Ceremonia</h3>
-        <p>Iglesia de Padre Jesús<br>C/ Real, 13<br>Ronda, Málaga</p>
-        <iframe src="https://www.google.com/maps?q=Iglesia+de+Padre+Jesus+Ronda&output=embed" width="100%" height="300" style="border:0; border-radius:10px; margin-bottom:30px;" loading="lazy"></iframe>
-
-        <h3 style="font-family: 'Playfair Display', serif; font-style:italic;">Celebración</h3>
-        <p>Heredad Los Alba<br>Carretera Algeciras, Ronda</p>
-        <iframe src="https://www.google.com/maps?q=Heredad+Los+Alba+Ronda&output=embed" width="100%" height="300" style="border:0; border-radius:10px;" loading="lazy"></iframe>
-    </div>
-</section>
-
-<h2>REGALO</h2>
-<p style="max-width:700px; margin:20px auto;">
-Vuestra compañía será nuestro mayor regalo, pero si deseáis tener un detalle con nosotros, podéis ayudarnos a comenzar esta nueva etapa.
-</p>
-<div style="margin-top:30px; padding:25px; background:white; max-width:500px; margin-left:auto; margin-right:auto; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.05);">
-    <p><strong>Cuenta bancaria</strong></p>
-    <p>ES00 0000 0000 0000 0000 0000</p>
-    <p style="font-size:0.8em; color:#555;">
-        ¡Gracias por ayudarnos a hacer realidad nuestros sueños!
-    </p>
-</div>
-
-<footer>
-    Con mucho cariño, os esperamos
-</footer>
-
-<!-- FLECHA DESLIZAR ABAJO -->
-<div class="flecha-scroll" id="flecha" style="display:none;" onclick="scrollAbajo()">
-    <!-- Flecha SVG más ancha y elegante -->
-    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#556B2F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="12" y1="5" x2="12" y2="19"></line>
-        <polyline points="6 13 12 19 18 13"></polyline>
-    </svg>
-</div>
-
-<script>
-// --- PANTALLA DE ENTRADA ---
-function abrirInvitacion(){
-    document.getElementById("pantalla-inicial").style.opacity = "0";
-    setTimeout(function(){
-        document.getElementById("pantalla-inicial").style.display = "none";
-        mostrarFlecha();
-    },1200);
-}
-
-// --- MOSTRAR FLECHA ---
-function mostrarFlecha(){
-    document.getElementById("flecha").style.display = "block";
-}
-
-// --- SCROLL ABAJO ---
-function scrollAbajo(){
-    const primeraSeccion = document.querySelector("section");
-    primeraSeccion.scrollIntoView({behavior: "smooth"});
-}
-
-// --- CUENTA ATRÁS ---
-const fechaBoda = new Date("July 11, 2026 00:00:00").getTime();
-const contador = setInterval(function() {
-    const ahora = new Date().getTime();
-    const diferencia = fechaBoda - ahora;
-
-    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
-
-    document.getElementById("contador").innerHTML =
-        dias + " días " + horas + "h " + minutos + "m " + segundos + "s ";
-
-    if (diferencia < 0) {
-        clearInterval(contador);
-        document.getElementById("contador").innerHTML = "¡Hoy es el gran día!";
-    }
-}, 1000);
-
-// --- ANIMACIONES SCROLL ---
-const secciones = document.querySelectorAll("section");
-window.addEventListener("scroll", () => {
-    secciones.forEach(sec => {
-        const posicion = sec.getBoundingClientRect().top;
-        if(posicion < window.innerHeight - 100){
-            sec.classList.add("visible");
-        }
-    });
-});
-</script>
-
+    <p>11 de JULIO de 2026</p>
+    <button class="boton-entrar">Entrar</button>
+  </div>
 </body>
 </html>
