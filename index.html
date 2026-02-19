@@ -49,7 +49,7 @@ p {
 /* --- TITULOS PRINCIPALES --- */
 #pantalla-inicial h1,
 header h1 {
-    font-family: 'Jane Austin', cursive; /* Solo títulos principales */
+    font-family: 'Jane Austin', cursive;
     font-weight: normal;
     white-space: nowrap;
     display: inline-block;
@@ -207,6 +207,8 @@ footer {
     z-index: 1000;
     cursor: pointer;
     animation: bajar 1s infinite;
+    display: none; /* Inicialmente oculta */
+    transition: opacity 0.5s ease;
 }
 
 .flecha-scroll svg {
@@ -233,6 +235,10 @@ footer {
         width: 50px;
         height: 50px;
         font-size: 1em;
+    }
+    .flecha-scroll svg {
+        width: 35px;
+        height: 35px;
     }
 }
 </style>
@@ -274,8 +280,6 @@ footer {
 </section>
 
 <section>
-    <!-- UBICACIÓN -->
-<section>
     <h2>UBICACIÓN</h2>
     <p style="max-width:700px; margin:20px auto;">
         Nos casamos en la preciosa ciudad de Ronda.
@@ -294,11 +298,10 @@ footer {
     </div>
 </section>
 
-<!-- REGALO -->
 <section>
     <h2>REGALO</h2>
     <p style="max-width:700px; margin:20px auto; line-height:1.8;">
-Vuestra compañía será nuestro mayor regalo, pero si deseáis tener un detalle con nosotros, podéis ayudarnos a comenzar esta nueva etapa.
+        Vuestra compañía será nuestro mayor regalo, pero si deseáis tener un detalle con nosotros, podéis ayudarnos a comenzar esta nueva etapa.
     </p>
     <div style="margin-top:30px; padding:25px; background:white; max-width:500px; margin-left:auto; margin-right:auto; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.05);">
         <p><strong>Cuenta bancaria</strong></p>
@@ -313,6 +316,14 @@ Vuestra compañía será nuestro mayor regalo, pero si deseáis tener un detalle
     Con mucho cariño, os esperamos
 </footer>
 
+<!-- FLECHA DESLIZAR ABAJO -->
+<div class="flecha-scroll" id="flecha" onclick="scrollAbajo()">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <polyline points="19 12 12 19 5 12"></polyline>
+    </svg>
+</div>
+
 <script>
 // --- PANTALLA DE ENTRADA ---
 function abrirInvitacion(){
@@ -325,7 +336,9 @@ function abrirInvitacion(){
 
 // --- MOSTRAR FLECHA ---
 function mostrarFlecha(){
-    document.getElementById("flecha").style.display = "block";
+    const flecha = document.getElementById("flecha");
+    flecha.style.display = "block";
+    flecha.style.opacity = "1";
 }
 
 // --- SCROLL ABAJO ---
@@ -333,6 +346,18 @@ function scrollAbajo(){
     const primeraSeccion = document.querySelector("section");
     primeraSeccion.scrollIntoView({behavior: "smooth"});
 }
+
+// --- OCULTAR FLECHA AL LLEGAR A SECCIÓN ---
+const flecha = document.getElementById("flecha");
+const primeraSeccion = document.querySelector("section");
+window.addEventListener("scroll", function ocultarFlecha(){
+    const posicionSeccion = primeraSeccion.getBoundingClientRect().top;
+    if(posicionSeccion <= window.innerHeight / 2){
+        flecha.style.opacity = "0";
+        setTimeout(() => { flecha.style.display = "none"; }, 500);
+        window.removeEventListener("scroll", ocultarFlecha);
+    }
+});
 
 // --- CUENTA ATRÁS ---
 const fechaBoda = new Date("July 11, 2026 00:00:00").getTime();
