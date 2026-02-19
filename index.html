@@ -203,7 +203,7 @@ footer {
 </section>
 
 <section>
-    <h2>CONFIRMACIÓN DE ASISTENCIA</h2>
+    <h2>ASISTENCIA</h2>
     <p>Nos encantaría contar contigo en nuestro día. Por favor, confirma tu asistencia antes del <strong>21 de Marzo de 2026</strong>.</p>
     <a class="boton" href="https://docs.google.com/forms/d/e/1FAIpQLSfqXMHrm615boPe7YyzUk5AhUR8w9_5d807FafDdk79SJjrnA/viewform?usp=header" target="_blank">
         Confirmar asistencia
@@ -247,8 +247,8 @@ function abrirInvitacion(){
     },1200);
 }
 
-// --- CUENTA ATRÁS CORREGIDA ---
-const fechaBoda = new Date("2026-07-11T00:00:00").getTime();
+// --- CUENTA ATRÁS ---
+const fechaBoda = new Date("July 11, 2026 00:00:00").getTime();
 const contador = setInterval(function() {
     const ahora = new Date().getTime();
     const diferencia = fechaBoda - ahora;
