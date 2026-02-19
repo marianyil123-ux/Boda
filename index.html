@@ -130,4 +130,154 @@ h2 {
     width: 85%;
     max-width: 600px;
     border-radius: 10px;
-    box-shadow: 0
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* --- BOTÓN CONFIRMAR --- */
+.boton {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 35px;
+    border: 1.5px solid #000;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+}
+
+.boton:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* --- FOOTER --- */
+footer {
+    padding: 50px 20px;
+    font-size: 0.9em;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.4em;
+    }
+    .fotos img, .programa img, .ubicacion img {
+        width: 90%;
+    }
+    .sello {
+        width: 50px;
+        height: 50px;
+        font-size: 1em;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PANTALLA DE ENTRADA -->
+<div id="pantalla-inicial">
+    <h1>Nerea & Iñaki</h1>
+    <p style="letter-spacing:3px; margin-bottom:10px;">¡Nuestro día especial está por llegar!</p>
+    <p style="letter-spacing:3px; margin-bottom:30px;">11 de Julio de 2026</p>
+    <button onclick="abrirInvitacion()">Abrir invitación</button>
+</div>
+
+<header>
+    <div class="sello">N & I</div>
+    <h1>Nerea & Iñaki</h1>
+    <div class="cuenta-atras" id="contador"></div>
+    <div class="fotos">
+        <img src="foto1.jpg" alt="Foto pareja 1">
+    </div>
+</header>
+
+<section>
+    <h2>PROGRAMA</h2>
+    <div class="programa">
+        <img src="programa.PNG" alt="Programa boda">
+    </div>
+</section>
+
+<section>
+    <h2>CONFIRMACIÓN DE ASISTENCIA</h2>
+    <p>Nos encantaría contar contigo en nuestro día. Por favor, confirma tu asistencia antes del <strong>21 de Marzo de 2026</strong>.</p>
+    <a class="boton" href="https://docs.google.com/forms/d/e/1FAIpQLSfqXMHrm615boPe7YyzUk5AhUR8w9_5d807FafDdk79SJjrnA/viewform?usp=header" target="_blank">
+        Confirmar asistencia
+    </a>
+</section>
+
+<section>
+    <h2>UBICACIÓN</h2>
+    <p style="max-width:700px; margin:20px auto;">
+        Nos casamos en la preciosa ciudad de Ronda.
+    </p>
+    <div class="ubicacion">
+        <img src="ronda.jpg" alt="Iglesia y finca">
+    </div>
+</section>
+
+<section>
+    <h2>REGALO</h2>
+    <p style="max-width:700px; margin:20px auto;">
+Vuestra compañía será nuestro mayor regalo, pero si deseáis tener un detalle con nosotros, podéis ayudarnos a comenzar esta nueva etapa.
+    </p>
+    <div style="margin-top:30px; padding:25px; background:white; max-width:500px; margin-left:auto; margin-right:auto; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.05);">
+        <p><strong>Cuenta bancaria</strong></p>
+        <p>ES00 0000 0000 0000 0000 0000</p>
+        <p style="font-size:0.8em; color:#555;">
+            ¡Gracias por ayudarnos a hacer realidad nuestros sueños!
+        </p>
+    </div>
+</section>
+
+<footer>
+    Con mucho cariño, os esperamos
+</footer>
+
+<script>
+// --- PANTALLA DE ENTRADA ---
+function abrirInvitacion(){
+    document.getElementById("pantalla-inicial").style.opacity = "0";
+    setTimeout(function(){
+        document.getElementById("pantalla-inicial").style.display = "none";
+    },1200);
+}
+
+// --- CUENTA ATRÁS CORREGIDA ---
+const fechaBoda = new Date("2026-07-11T00:00:00").getTime();
+const contador = setInterval(function() {
+    const ahora = new Date().getTime();
+    const diferencia = fechaBoda - ahora;
+
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+    document.getElementById("contador").innerHTML =
+        dias + " días " + horas + "h " + minutos + "m " + segundos + "s ";
+
+    if (diferencia < 0) {
+        clearInterval(contador);
+        document.getElementById("contador").innerHTML = "¡Hoy es el gran día!";
+    }
+}, 1000);
+
+// --- ANIMACIONES SCROLL ---
+const secciones = document.querySelectorAll("section");
+window.addEventListener("scroll", () => {
+    secciones.forEach(sec => {
+        const posicion = sec.getBoundingClientRect().top;
+        if(posicion < window.innerHeight - 100){
+            sec.classList.add("visible");
+        }
+    });
+});
+</script>
+
+</body>
+        </html>
