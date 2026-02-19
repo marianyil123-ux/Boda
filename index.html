@@ -6,7 +6,8 @@
 <title>Nerea & Iñaki - 11 de JULIO de 2026</title>
 
 <!-- Cargar fuentes -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&family=Beautiful+Bloom&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/vettorell" rel="stylesheet">
 
 <style>
 /* --- ESTILO GENERAL --- */
@@ -14,7 +15,7 @@ body {
     margin: 0;
     font-family: Georgia, serif;
     background-color: #ffffff;
-    color: #6B8E23; /* texto general en oliva */
+    color: #6B8E23;
     text-align: center;
 }
 
@@ -25,9 +26,8 @@ p {
     color: #6B8E23;
 }
 
-/* --- CLASE DATOS IMPORTANTES --- */
 .resaltar {
-    color: #556B2F; /* verde oscuro */
+    color: #556B2F;
     font-weight: 500;
 }
 
@@ -47,28 +47,34 @@ p {
     color: #556B2F;
 }
 
-/* --- ANIMACIÓN FADE + ZOOM --- */
-@keyframes fadeZoom {
-    0% { opacity: 0; transform: scale(0.6); }
+/* --- TITULOS PRINCIPALES VETTORELL --- */
+#pantalla-inicial h1,
+header h1 {
+    font-family: 'Vettorell', serif;
+    font-weight: normal;
+    letter-spacing: 2px;
+    opacity: 0;
+    transform: scale(0.85);
+    animation: fadeZoomElegant 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+#pantalla-inicial h1 { 
+    font-size: 3.2rem; 
+    margin-bottom: 15px; 
+}
+
+header h1 { 
+    font-size: 3.4em; 
+    margin-bottom: 10px;
+}
+
+/* Animación elegante */
+@keyframes fadeZoomElegant {
+    0% { opacity: 0; transform: scale(0.85); }
     100% { opacity: 1; transform: scale(1); }
 }
 
-/* --- TITULOS PRINCIPALES --- */
-#pantalla-inicial h1,
-header h1 {
-    font-family: 'Beautiful Bloom', cursive;
-    font-weight: normal;
-    white-space: nowrap;
-    display: inline-block;
-    opacity: 0;
-    transform: scale(0.6);
-    animation: fadeZoom 1.8s ease forwards;
-}
-
-#pantalla-inicial h1 { font-size: 3rem; margin-bottom: 15px; }
-header h1 { font-size: 3.2em; font-style: italic; letter-spacing: 1px; }
-
-/* --- BOTÓN PANTALLA DE INICIO --- */
+/* --- BOTÓN --- */
 #pantalla-inicial button, .boton {
     padding: 14px 35px;
     border: 1.5px solid #556B2F;
@@ -84,7 +90,6 @@ header h1 { font-size: 3.2em; font-style: italic; letter-spacing: 1px; }
 #pantalla-inicial button:hover, .boton:hover {
     background-color: #445823;
     border-color: #445823;
-    color: #ffffff;
 }
 
 /* --- HEADER --- */
@@ -97,7 +102,7 @@ header {
     position: relative;
 }
 
-/* --- SELLO INICIALES --- */
+/* --- SELLO --- */
 .sello {
     position: absolute;
     top: 25px;
@@ -136,10 +141,9 @@ header {
     color: #556B2F;
 }
 
-/* --- FOTOS --- */
+/* --- RESTO DEL DISEÑO SIN CAMBIOS --- */
 .fotos img { width: 260px; margin: 20px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
 
-/* --- SECCIONES --- */
 section {
     padding: 80px 20px;
     opacity: 0;
@@ -150,7 +154,6 @@ section {
 
 section.visible { opacity: 1; transform: translateY(0); }
 
-/* --- TITULOS DE SECCIONES --- */
 section h2, section h3 {
     font-size: 2.1em;
     font-style: italic;
@@ -159,7 +162,6 @@ section h2, section h3 {
     color: #556B2F;
 }
 
-/* --- IMAGENES --- */
 .programa img, .ubicacion img {
     width: 85%;
     max-width: 600px;
@@ -167,10 +169,8 @@ section h2, section h3 {
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-/* --- FOOTER --- */
 footer { padding: 50px 20px; font-size: 0.9em; color: #6B8E23; }
 
-/* --- FLECHA DESPLAZAR ABAJO CENTRAL --- */
 .flecha-scroll {
     position: fixed;
     left: 50%;
@@ -183,13 +183,13 @@ footer { padding: 50px 20px; font-size: 0.9em; color: #6B8E23; }
     display: none;
     cursor: pointer;
     z-index: 1000;
-    display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     animation: bounce 1.5s infinite;
     transition: opacity 0.8s ease;
 }
+
 .flecha-scroll svg { width: 30px; height: 30px; stroke: #556B2F; }
 
 @keyframes bounce {
@@ -198,9 +198,11 @@ footer { padding: 50px 20px; font-size: 0.9em; color: #6B8E23; }
     60% { transform: translateX(-50%) translateY(5px); }
 }
 
-/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-    header h1, #pantalla-inicial h1 { font-size: 2.4em; }
+    header h1, #pantalla-inicial h1 { 
+        font-size: 2.2em; 
+        line-height: 1.2;
+    }
     .fotos img, .programa img, .ubicacion img { width: 90%; }
     .sello { width: 50px; height: 50px; font-size: 1em; }
     .flecha-scroll svg { width: 25px; height: 25px; }
