@@ -61,12 +61,12 @@ header h1 {
 #pantalla-inicial h1 { font-size: 3rem; margin-bottom: 15px; }
 header h1 { font-size: 3.2em; font-style: italic; letter-spacing: 1px; }
 
-/* --- BOTÓN DE PANTALLA DE INICIO --- */
+/* --- BOTÓN PANTALLA DE INICIO --- */
 #pantalla-inicial button {
     padding: 15px 35px;
-    border: none;
+    border: 1.5px solid #556B2F;
     border-radius: 6px;
-    background: #556B2F;
+    background-color: #556B2F;
     color: #ffffff;
     font-size: 0.95em;
     cursor: pointer;
@@ -74,7 +74,11 @@ header h1 { font-size: 3.2em; font-style: italic; letter-spacing: 1px; }
     letter-spacing: 1px;
     transition: all 0.3s ease;
 }
-#pantalla-inicial button:hover { background: #445823; }
+#pantalla-inicial button:hover {
+    background-color: #445823;
+    border-color: #445823;
+    color: #ffffff;
+}
 
 /* --- HEADER --- */
 header {
@@ -362,4 +366,4 @@ window.addEventListener("scroll", () => {
 </script>
 
 </body>
-        </html>
+</html>
