@@ -67,33 +67,33 @@ header h1 { font-size: 3.2em; font-style: italic; letter-spacing: 1px; }
     margin-top: 25px;
     padding: 14px 35px;
     min-width: 220px;              
-    border: 1.5px solid #000000;   /* borde negro */
+    border: 1.5px solid #000000;
     border-radius: 30px;
     text-decoration: none;
-    color: #000000;                /* texto blanco */
+    color: #000000;
     font-weight: 500;
     letter-spacing: 1.5px;
     font-size: 0.95em;
     text-align: center;
     cursor: pointer;
-    background-color: #ffffff;     /* fondo blanco */
+    background-color: #ffffff;
     transition: all 0.2s ease;
 }
 
 .boton:hover {
-    background-color: #DCDCDC;     /* gris claro al pasar el mouse */
+    background-color: #DCDCDC;
     color: #ffffff;
 }
 
-.boton:focus {
+/* --- ELIMINAR DESTELLO AZUL DEL BOTÓN DE ENTRAR --- */
+#pantalla-inicial .boton:focus,
+#pantalla-inicial .boton:active {
     outline: none;
     box-shadow: none;
-}
-
-.boton:active {
-    transform: scale(0.97);
-    background-color: #DCDCDC;     /* gris claro al presionar */
+    background-color: #DCDCDC; /* color consistente al presionar */
     color: #ffffff;
+    transform: scale(0.97);
+    transition: all 0.2s ease;
 }
 
 /* --- HEADER --- */
