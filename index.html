@@ -51,7 +51,7 @@ p {
 }
 
 #pantalla-inicial button:hover {
-    background:#445823; /* un tono un poco más oscuro para efecto elegante */
+    background:#445823;
 }
 
 /* --- HEADER --- */
@@ -83,10 +83,8 @@ header {
     color: #556B2F;
     letter-spacing: 2px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    position: absolute;
 }
 
-/* segundo círculo interior */
 .sello::before {
     content: "";
     position: absolute;
@@ -95,6 +93,7 @@ header {
     border: 1px solid #556B2F;
     border-radius: 50%;
 }
+
 /* --- TITULO PRINCIPAL --- */
 h1 {
     font-size: 3.2em;
@@ -175,44 +174,23 @@ footer {
     font-size: 0.9em;
 }
 
-/* --- FLECHAS DE DESPLAZAR --- */
+/* --- FLECHA DESPLAZAR ABAJO --- */
 .flecha-scroll {
     position: fixed;
     right: 20px;
     bottom: 50px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
     z-index: 1000;
-}
-
-.flecha-scroll button {
-    background: #556B2F;
-    border: none;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
+    font-size: 2em;
     cursor: pointer;
-    color: #fff;
-    font-size: 1.5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+    color: #556B2F;
+    animation: bajar 1s infinite;
+    transition: opacity 0.5s ease;
 }
 
-.flecha-scroll button:hover {
-    background: #445823;
-}
-
-/* --- ANIMACIÓN FLECHA ABAJO --- */
-@keyframes parpadeoAbajo {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(8px); }
-}
-
-.flecha-scroll button.abajo {
-    animation: parpadeoAbajo 1s infinite;
+@keyframes bajar {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+    100% { transform: translateY(0); }
 }
 
 /* --- RESPONSIVE --- */
@@ -301,11 +279,8 @@ Vuestra compañía será nuestro mayor regalo, pero si deseáis tener un detalle
     Con mucho cariño, os esperamos
 </footer>
 
-<!-- FLECHAS DESLIZAR -->
-<div class="flecha-scroll" id="flechas" style="display:none;">
-    <button class="abajo" onclick="scrollAbajo()">&#8595;</button>
-    <button onclick="scrollArriba()">&#8593;</button>
-</div>
+<!-- FLECHA DESLIZAR ABAJO -->
+<div class="flecha-scroll" id="flecha" style="display:none;" onclick="scrollAbajo()">&#8595;</div>
 
 <script>
 // --- PANTALLA DE ENTRADA ---
@@ -313,23 +288,34 @@ function abrirInvitacion(){
     document.getElementById("pantalla-inicial").style.opacity = "0";
     setTimeout(function(){
         document.getElementById("pantalla-inicial").style.display = "none";
-        mostrarFlechas(); // mostramos las flechas al abrir invitación
+        mostrarFlecha();
     },1200);
 }
 
-// --- MOSTRAR FLECHAS ---
-function mostrarFlechas(){
-    document.getElementById("flechas").style.display = "flex";
+// --- MOSTRAR FLECHA ---
+function mostrarFlecha(){
+    document.getElementById("flecha").style.display = "block";
 }
 
-// --- FUNCIONES SCROLL ---
+// --- SCROLL ABAJO ---
 function scrollAbajo(){
     const primeraSeccion = document.querySelector("section");
     primeraSeccion.scrollIntoView({behavior: "smooth"});
 }
-function scrollArriba(){
-    window.scrollTo({top: 0, behavior: "smooth"});
-}
+
+// --- OCULTAR FLECHA DEFINITIVAMENTE CON DESVANECIMIENTO ---
+const flecha = document.getElementById("flecha");
+const primeraSeccion = document.querySelector("section");
+
+window.addEventListener("scroll", function ocultarFlecha(){
+    const posicionSeccion = primeraSeccion.getBoundingClientRect().top;
+    if(posicionSeccion <= window.innerHeight / 2){
+        // Desvanecer la flecha antes de ocultarla
+        flecha.style.opacity = "0";
+        setTimeout(() => { flecha.style.display = "none"; }, 500);
+        window.removeEventListener("scroll", ocultarFlecha);
+    }
+});
 
 // --- CUENTA ATRÁS ---
 const fechaBoda = new Date("July 11, 2026 00:00:00").getTime();
@@ -355,13 +341,4 @@ const contador = setInterval(function() {
 const secciones = document.querySelectorAll("section");
 window.addEventListener("scroll", () => {
     secciones.forEach(sec => {
-        const posicion = sec.getBoundingClientRect().top;
-        if(posicion < window.innerHeight - 100){
-            sec.classList.add("visible");
-        }
-    });
-});
-</script>
-
-</body>
-</html>
+        const posicion = sec
